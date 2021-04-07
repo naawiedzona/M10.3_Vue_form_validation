@@ -13,7 +13,7 @@ import FormFooter from './Form-footer.vue';
 
 export default {
     name:'Form',
-     components: {
+    components: {
     FormHeader,
     FormBody,
     FormFooter

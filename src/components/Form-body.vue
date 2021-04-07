@@ -1,7 +1,76 @@
 <template>
 <div>
     <form action="" id="form" @submit.prevent="submit">
-    <div class="form-control">
+        <elementFormulari
+            :label="'Name:'"
+            :type="'text'"
+            :placeholder="'name'"
+            :id="'username'"
+            v-model="nameModel"
+            :name="nameModel"
+        >
+        </elementFormulari>
+        <elementFormulari
+            :label="'Phone:'"
+            :type="'number'"
+            :placeholder="'phone number'"
+            :id="'phonenumber'"
+            vModel="phoneModel"
+            :name="phoneModel"
+        >
+        </elementFormulari>
+        <elementFormulari
+            :label="'Post code:'"
+            :type="'text'"
+            :placeholder="'post code'"
+            :id="'post'"
+            vModel="postModel"
+            :name="postModel"
+        >
+        </elementFormulari>
+        <elementFormulari
+            :label="'E-mail:'"
+            :type="'text'"
+            :placeholder="'user@domain.com'"
+            :id="'email'"
+            vModel="emailModel"
+            :name="emailModel"
+        >
+        </elementFormulari>
+        <elementFormulari
+            :label="'Password:'"
+            :type="'password'"
+            :placeholder="'password'"
+            :id="'password'"
+            vModel="passwordModel"
+            :name="passwordModel"
+            :class="errorMessage"
+            vIf="'!$v.nameModel.required'"
+        >
+        </elementFormulari>
+        <elementFormulari
+            :label="'Repeat your password:'"
+            :type="'password'"
+            :placeholder="'repeat your password'"
+            :id="'password2'"
+            vModel="passwordModel2"
+            :name="passwordModel2"
+        >
+        </elementFormulari>
+
+    <div>
+        <input type="submit" value="Register" class="btn" id="btn-send"> 
+    </div>
+        
+
+
+
+
+
+
+
+
+   <!--  <div class="form-control">
         <label>Name:</label>
         <input type="text" placeholder="name" id="username" autofocus v-model="nameModel" @blur="$v.nameModel.$touch()" >
         <p class="errorMessage" v-if="!$v.nameModel.required">Required</p>
@@ -38,16 +107,16 @@
             <p class="errorMessage" v-else-if="!$v.passwordModel2.sameAsPassword">Passwords should match</p>
     </div> 
      <div>
-        <input type="submit" value="Register" class="btn" id="btn-send">
-    </div>  
+        <input type="submit" value="Register" class="btn" id="btn-send"> 
+    </div>  -->
     </form>
 </div>  
 </template>
 
 <script>
 
-import { required, minLength, between, maxLength, email, alpha, sameAs } from 'vuelidate/lib/validators';
-
+//import { required, minLength, between, maxLength, email, alpha, sameAs } from 'vuelidate/lib/validators';
+import elementFormulari from './elementFormulari.vue';
 export default {
     name:'Form-body',
     data(){
@@ -57,12 +126,13 @@ export default {
            postModel:"",
            emailModel:"",
            passwordModel:"",
-           passwordModel2:"",
-           //submitted: false   
-           //submitStatus = null   
+           passwordModel2:""   
         }
     },
-    validations: {
+    components:{
+        elementFormulari
+    },
+    /* validations: {
     nameModel: {
         required,
         minLength: minLength(6),
@@ -91,7 +161,7 @@ export default {
         maxLength: maxLength(13),
         sameAsPassword:sameAs('passwordModel')
     }
-  },
+  }, */
   methods: {
     onlyNumber ($event) {
         let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
@@ -100,13 +170,10 @@ export default {
         }
     },
     submit() {
-       //this.submitted = true;
        this.$v.$touch();
        if (this.$v.$invalid) {
-           //this.submitStatus = "error"
            alert("hay un error")
        }else{
-           //this.submitStatus =" pending"
            alert("todo bien")
        }
     }
@@ -114,33 +181,6 @@ export default {
 }
 </script>
 <style scoped>
-*{
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.form-control {
-    margin-bottom: 10px;
-    padding-bottom: 15px;
-    position: relative;
-    opacity: 0.7;
-}
-.form-control label {
-    display: inline-block;
-    margin-bottom: 5px;
-    font-size: 20px;
-}
-.form-control input {
-    border: 1px solid #f0f0f0;
-    border-radius: 4px;
-    display: block;
-    padding: 10px;
-    width: 60%;
-    font-family: monospace;
-    font-size: 15px;
-    color: rgb(76, 192, 173);
-}
 
 .btn {
     font-size: 20px;
