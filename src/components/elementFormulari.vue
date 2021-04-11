@@ -27,7 +27,8 @@ export default {
             numberInput:false,
             emailInput:false,
             passwordInput:false,
-            matchingPasswords:false
+            matchingPasswords:false,
+            correctPassword:""
         }
     },
    props:[
@@ -40,7 +41,8 @@ export default {
        'alpha',
        'numbers',
        'emails',
-       'passwords'
+       'passwords',
+       'confirmPassword'
   ],
     /* validations: {
     nameModel: {
@@ -113,18 +115,23 @@ export default {
                 var passwords = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{6,13})$/;
             if (!this.valueInput.match(passwords)) {
                 this.passwordInput = true;
+                
             }else {
                 this.passwordInput = false;
+                let correctPassword = this.valueInput;
+                console.log(correctPassword);
             }
         } 
         //password 2  ??????????
-         /*  if(this.confirmPassword && this.password){
-            if(!this.valueInput!=) {
+           if (this.confirmPassword) {
+            if (!this.valueInput===this.correctPassword) {
                 this.matchingPasswords = true;
-            }else{
+               
+            } else {
                 this.matchingPasswords = false;
+                 console.log(this.valueInput);
             }
-        }  */
+        }   
         }  
       }
   }
