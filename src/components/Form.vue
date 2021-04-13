@@ -5,7 +5,7 @@
 <FormFooter></FormFooter>
 </div>
 </template>
-
+<!--
 <script>
 import FormHeader from './Form-header.vue';
 import FormBody from './Form-body.vue';
@@ -20,6 +20,8 @@ export default {
   }
 }
 </script>
+-->
+<!--
 <style scoped>
 #form{
     margin: 0 auto;
@@ -28,3 +30,6 @@ export default {
     background-color: rgba(76, 192, 173, 0.082);
 }
 </style>
+-->
+<script src="../scripts/form.js"></script>
+<style src="../styles/form.css" scoped></style>

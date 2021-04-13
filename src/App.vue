@@ -3,7 +3,7 @@
    <Form></Form>
   </div>
 </template>
-
+<!--
 <script>
 import Form from './components/Form.vue'
 
@@ -25,3 +25,6 @@ export default {
   margin-top: 60px;
 }
 </style>
+-->
+<script src="./scripts/app.js"></script>
+<style src="./styles/app.css" scoped></style>

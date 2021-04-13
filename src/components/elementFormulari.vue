@@ -13,9 +13,8 @@
         <p class="errorMessage" v-else-if="passwordInput">The password sholud have between 6 and 13 letters, including capital letters and lower cases</p>
     </div>
 </template>
-
+<!--
 <script>
-//import { required, minLength, between, maxLength, email, alpha, sameAs } from 'vuelidate/lib/validators';
 
 export default {
 
@@ -28,7 +27,12 @@ export default {
             emailInput:false,
             passwordInput:false,
             matchingPasswords:false,
-            correctPassword:""
+            correctPassword:"",
+            validateOk:{
+                name: this.valueInput,
+                state:false,
+                msm:''
+            }
         }
     },
    props:[
@@ -43,37 +47,7 @@ export default {
        'emails',
        'passwords',
        'confirmPassword'
-  ],
-    /* validations: {
-    nameModel: {
-        required,
-        //minLength: minLength(this.minLength),
-        //maxLength: maxLength(this.maxLength),
-        alpha
-    },
-    phoneModel: {
-        required
-    },
-     postModel: {
-        required,
-        between: between(20, 30)
-    },
-     emailModel: {
-        required,
-        email
-    },
-     passwordModel: {
-        required,
-        minLength: minLength(6),
-        maxLength: maxLength(13)
-    },
-     passwordModel2: {
-        required,
-        minLength: minLength(6),
-        maxLength: maxLength(13),
-        sameAsPassword:sameAs('passwordModel')
-    }
-  }, */
+],
   methods:{
       CheckInput () {
        //required
@@ -88,8 +62,12 @@ export default {
                 var letters = /^[A-Za-z]+$/;
             if(!this.valueInput.match(letters)) {
                 this.alphaInput = true;
+                this.validateOk.state = true;
+                this.validateOk.msm = 'You can only use letters'
             }else{
                 this.alphaInput = false;
+                this.validateOk.state = false;
+                this.validateOk.msm = '';
             }
         }  
         // only numbers 
@@ -97,8 +75,12 @@ export default {
                 var digits = /^[0-9]*$/;
             if (!this.valueInput.match(digits)) {
                 this.numberInput = true;
+                 this.validateOk.state = true;
+                this.validateOk.msm = 'You can only use numbers'
             }else {
                 this.numberInput = false;
+                this.validateOk.state = false;
+                this.validateOk.msm = '';
             }
         } 
         //email 
@@ -106,8 +88,11 @@ export default {
                 var emails = /([a-zñ\d.-]+)@([a-zñ\d.-]+).([a-z]{2,})/gi;
             if (!this.valueInput.match(emails)) {
                 this.emailInput = true;
+                this.validateOk.state = true;
+                this.validateOk.msm = 'You should put a real email adress'
             }else {
                 this.emailInput = false;
+                this.validateOk.msm = '';
             }
         } 
         //password 
@@ -115,24 +100,31 @@ export default {
                 var passwords = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{6,13})$/;
             if (!this.valueInput.match(passwords)) {
                 this.passwordInput = true;
+                this.validateOk.state = true;
+                this.validateOk.msm = 'The password sholud have between 6 and 13 letters, including capital letters and lower cases'
                 
             }else {
                 this.passwordInput = false;
                 let correctPassword = this.valueInput;
                 console.log(correctPassword);
+                this.validateOk.msm = '';
             }
         } 
-        //password 2  ??????????
+        //password 2 
            if (this.confirmPassword) {
             if (!this.valueInput===this.correctPassword) {
                 this.matchingPasswords = true;
+                this.validateOk.state = true;
+                this.validateOk.msm = 'The passwords should match'
                
             } else {
                 this.matchingPasswords = false;
                  console.log(this.valueInput);
+                 this.validateOk.msm = '';
             }
         }   
-        }  
+        } 
+         this.$emit('GetValidation',this.validateOk);
       }
   }
 }
@@ -171,3 +163,6 @@ export default {
 }
 
 </style>
+-->
+<script src="../scripts/element-formulari.js"></script>
+<style src="../styles/element-formulari.css" scoped></style>

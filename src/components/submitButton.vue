@@ -7,18 +7,26 @@
                 @click="SubmitForm">
     </div>
 </template>
+<!--
 <script>
 export default {
+    
     methods: {
         SubmitForm () {
-            alert("submit form")
+            alert(this.validationInput.name)
+            for(let i = 0;i < this.validationInput.length;i++) {
+                if(this.validationInput.state) {
+                    alert("hola")
+                }
+            }
         }
     },
     props: [
         'type',
         'id',
         'value',
-        'sendForm'
+        'sendForm',
+        'validationInput'
     ]
 }
 </script>
@@ -41,3 +49,6 @@ export default {
     background-color: rgba(255, 255, 255, 0.685);
 }
 </style>
+-->
+<script src="../scripts/submit-button.js"></script>
+<style src="../styles/submit-button.css" scoped></style>

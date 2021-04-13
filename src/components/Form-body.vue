@@ -56,16 +56,17 @@
         </elementFormulari>
 
         <!--     SUBMIT BUTTON     -->
-        <submitButton
+        <submitButton 
             :type="'submit'"
             :id="'btn-send'"
             :value="'Register'"
-            :sendForm=true>
+            :sendForm=true
+            :validationInput="validationInput">
         </submitButton> 
     </form>
 </div>  
 </template>
-
+<!--
 <script>
 import elementFormulari from './elementFormulari.vue';
 import submitButton from './submitButton.vue';
@@ -74,12 +75,8 @@ export default {
     name:'Form-body',
     data(){
         return{
-          /*  nameModel:"",
-           phoneModel:"",
-           postModel:"",
-           emailModel:"",
-           passwordModel:"",
-           passwordModel2:""  */  
+          validationInput: [],
+          validationForm: true
         }
     },
     components:{
@@ -87,12 +84,20 @@ export default {
         submitButton
     },
     methods:{
-        submit(){
-            alert("submit padre")
+        submit () {
+            if(!this.validationForm) {
+                console.log("submit padre function")
+            }
+        },
+        GetValidation(value) {
+            this.validationInput.push(value);
+            console.log("get validation function")
         }
     }
 }
 </script>
 <style scoped>
-
 </style>
+-->
+<script src="../scripts/form-body.js"></script>
+<style src="../styles/form-body.css" scoped></style>

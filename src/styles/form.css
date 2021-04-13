@@ -1,0 +1,6 @@
+#form{
+    margin: 0 auto;
+    max-width: 600px;
+    border:1px solid rgb(76, 192, 173);
+    background-color: rgba(76, 192, 173, 0.082);
+}
