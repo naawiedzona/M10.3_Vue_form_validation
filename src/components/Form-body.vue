@@ -1,13 +1,14 @@
 <template>
 <div>
-    <form action="" id="form" @submit.prevent="submit">
+    <form action="" id="form">
         <elementFormulari
             :label="'Name:'"
             :type="'text'"
             :placeholder="'name'"
             :id="'username'"
             :require=true
-            :alpha=true>
+            :alpha=true
+            @GetValidation="GetValidationMethod">
         </elementFormulari>
 
          <elementFormulari
@@ -16,7 +17,8 @@
             :placeholder="'phone number'"
             :id="'phonenumber'"
             :require=true
-            :numbers=true>
+            :numbers=true
+            @GetValidation="GetValidationMethod">
         </elementFormulari>
 
         <elementFormulari
@@ -25,7 +27,8 @@
             :placeholder="'post code'"
             :id="'post'"
            :require=true
-           :numbers=true>
+           :numbers=true
+           @GetValidation="GetValidationMethod">
         </elementFormulari>
 
         <elementFormulari
@@ -34,7 +37,8 @@
             :placeholder="'user@domain.com'"
             :id="'email'"
             :require=true
-            :emails=true>
+            :emails=true
+            @GetValidation="GetValidationMethod">
         </elementFormulari>
 
         <elementFormulari
@@ -43,7 +47,8 @@
             :placeholder="'password'"
             :id="'password'"
             :require=true
-            :passwords=true>
+            :passwords=true
+            @GetValidation="GetValidationMethod">
         </elementFormulari>
 
         <elementFormulari
@@ -52,7 +57,8 @@
             :placeholder="'repeat your password'"
             :id="'password2'"
             :require=true
-            :confirmPassword=true>
+            :confirmPassword=true
+            @GetValidation="GetValidationMethod">
         </elementFormulari>
 
         <!--     SUBMIT BUTTON     -->
@@ -66,38 +72,6 @@
     </form>
 </div>  
 </template>
-<!--
-<script>
-import elementFormulari from './elementFormulari.vue';
-import submitButton from './submitButton.vue';
 
-export default {
-    name:'Form-body',
-    data(){
-        return{
-          validationInput: [],
-          validationForm: true
-        }
-    },
-    components:{
-        elementFormulari,
-        submitButton
-    },
-    methods:{
-        submit () {
-            if(!this.validationForm) {
-                console.log("submit padre function")
-            }
-        },
-        GetValidation(value) {
-            this.validationInput.push(value);
-            console.log("get validation function")
-        }
-    }
-}
-</script>
-<style scoped>
-</style>
--->
 <script src="../scripts/form-body.js"></script>
 <style src="../styles/form-body.css" scoped></style>

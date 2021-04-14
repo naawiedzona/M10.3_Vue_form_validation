@@ -10,9 +10,10 @@ export default {
       matchingPasswords: false,
       correctPassword: "",
       validateOk: {
-        name: this.valueInput,
+        id: this.id,
         state: false,
         msm: "",
+        name: "",
       },
     };
   },
@@ -91,7 +92,7 @@ export default {
             this.validateOk.msm = "";
           }
         }
-        //password 2
+        //password match
         if (this.confirmPassword) {
           if (!this.valueInput === this.correctPassword) {
             this.matchingPasswords = true;
@@ -104,6 +105,7 @@ export default {
           }
         }
       }
+      this.validateOk.name = this.valueInput;
       this.$emit("GetValidation", this.validateOk);
     },
   },
