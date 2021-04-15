@@ -69,6 +69,7 @@
             :sendForm=true
             :validationInput="validationInput">
         </submitButton> 
+        {{validationInput}}
     </form>
 </div>  
 </template>

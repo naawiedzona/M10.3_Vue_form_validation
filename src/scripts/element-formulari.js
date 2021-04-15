@@ -12,7 +12,7 @@ export default {
       validateOk: {
         id: this.id,
         state: false,
-        msm: "",
+        //msm: "",
         name: "",
       },
     };
@@ -45,11 +45,11 @@ export default {
           if (!this.valueInput.match(letters)) {
             this.alphaInput = true;
             this.validateOk.state = true;
-            this.validateOk.msm = "You can only use letters";
+            //this.validateOk.msm = "You can only use letters";
           } else {
             this.alphaInput = false;
             this.validateOk.state = false;
-            this.validateOk.msm = "";
+            //this.validateOk.msm = "";
           }
         }
         // only numbers
@@ -58,11 +58,15 @@ export default {
           if (!this.valueInput.match(digits)) {
             this.numberInput = true;
             this.validateOk.state = true;
-            this.validateOk.msm = "You can only use numbers";
+            //this.validateOk.msm = "You can only use numbers";
+          } else if (this.valueInput === "") {
+            this.requireInput = true;
+            this.validateOk.state = true;
+            this.validateOk.msm = "required";
           } else {
             this.numberInput = false;
             this.validateOk.state = false;
-            this.validateOk.msm = "";
+            //this.validateOk.msm = "";
           }
         }
         //email
@@ -71,10 +75,10 @@ export default {
           if (!this.valueInput.match(emails)) {
             this.emailInput = true;
             this.validateOk.state = true;
-            this.validateOk.msm = "You should put a real email adress";
+            //this.validateOk.msm = "You should put a real email adress";
           } else {
             this.emailInput = false;
-            this.validateOk.msm = "";
+            //this.validateOk.msm = "";
           }
         }
         //password
@@ -83,13 +87,13 @@ export default {
           if (!this.valueInput.match(passwords)) {
             this.passwordInput = true;
             this.validateOk.state = true;
-            this.validateOk.msm =
-              "The password sholud have between 6 and 13 letters, including capital letters and lower cases";
+            //this.validateOk.msm =
+            ("The password must have between 6 and 13 letters, including capital letters, lower cases and digits");
           } else {
             this.passwordInput = false;
             let correctPassword = this.valueInput;
             console.log(correctPassword);
-            this.validateOk.msm = "";
+            //this.validateOk.msm = "";
           }
         }
         //password match
@@ -97,11 +101,11 @@ export default {
           if (!this.valueInput === this.correctPassword) {
             this.matchingPasswords = true;
             this.validateOk.state = true;
-            this.validateOk.msm = "The passwords should match";
+            //this.validateOk.msm = "The passwords should match";
           } else {
             this.matchingPasswords = false;
             console.log(this.valueInput);
-            this.validateOk.msm = "";
+            //this.validateOk.msm = "";
           }
         }
       }
