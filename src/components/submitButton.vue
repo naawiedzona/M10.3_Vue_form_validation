@@ -5,6 +5,7 @@
                 :value="value"
                 :id="id"
                 @click="SubmitForm">
+                <p class="errorMessage" v-if="submitForm">All the fields are required</p>
     </div>
 </template>
 

@@ -7,6 +7,7 @@ export default {
     return {
       validationInput: [],
       validationForm: true,
+      correctPasswordOk: "",
     };
   },
   components: {
@@ -16,6 +17,10 @@ export default {
   methods: {
     GetValidationMethod(value) {
       this.validationInput.push(value);
+    },
+    GetCorrectPassword(value) {
+      this.correctPasswordOk = value;
+      console.log(this.correctPasswordOk);
     },
   },
 };

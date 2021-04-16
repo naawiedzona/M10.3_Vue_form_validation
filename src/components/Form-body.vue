@@ -48,9 +48,9 @@
             :id="'password'"
             :require=true
             :passwords=true
-            @GetValidation="GetValidationMethod">
+            @GetValidation="GetValidationMethod"
+            @GetPasswordValue="GetCorrectPassword">
         </elementFormulari>
-
         <elementFormulari
             :label="'Repeat your password:'"
             :type="'password'"
@@ -58,7 +58,9 @@
             :id="'password2'"
             :require=true
             :confirmPassword=true
-            @GetValidation="GetValidationMethod">
+            :correctPasswordOk="correctPasswordOk"
+            @GetValidation="GetValidationMethod"
+            >
         </elementFormulari>
 
         <!--     SUBMIT BUTTON     -->
@@ -67,9 +69,9 @@
             :id="'btn-send'"
             :value="'Register'"
             :sendForm=true
-            :validationInput="validationInput">
+            :validationInput="validationInput"
+            :submitForm=false>
         </submitButton> 
-        {{validationInput}}
     </form>
 </div>  
 </template>

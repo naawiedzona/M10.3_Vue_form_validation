@@ -10,7 +10,7 @@
         <p class="errorMessage" v-else-if="alphaInput">You can only use letters</p>
         <p class="errorMessage" v-else-if="numberInput">You can only use numbers</p>
         <p class="errorMessage" v-else-if="emailInput">You should put a real email adress</p>
-        <p class="errorMessage" v-else-if="passwordInput">The password sholud have between 6 and 13 letters, including capital letters and lower cases</p>
+        <p class="errorMessage" v-else-if="passwordInput">The password should have between 6 and 13 letters, including capital letters and lower cases</p>
         <p class="errorMessage" v-else-if="matchingPasswords">The passwords should match</p>
     </div>
 </template>

@@ -2,17 +2,20 @@ export default {
   methods: {
     SubmitForm(e) {
       e.preventDefault();
-      alert("wait to submit form... ");
       let validations = [];
+      const allFalse = (arr) => arr.every((v) => v === false);
       for (let i = 0; i < this.validationInput.length; i++) {
         validations.push(this.validationInput[i].state);
-
-        //  if (this.validationInput.state) {
-        //    alert("el campo  correcto");
-        //  }
+        let isCorrect = allFalse(validations);
+        console.log(e.target.form);
+        if (validations.length >= e.target.form.length - 1 && isCorrect) {
+          alert("campos rellenados correctamente ");
+          
+        }else{
+          this.submitForm = true;
+        }
       }
-      alert(validations);
     },
   },
-  props: ["type", "id", "value", "sendForm", "validationInput"],
+  props: ["type", "id", "value", "sendForm", "validationInput","submitForm"],
 };
