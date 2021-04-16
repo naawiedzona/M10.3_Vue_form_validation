@@ -1,5 +1,5 @@
 <template>
-    <div class="form-control">
+    <div class="form-controls">
         <label>{{label}}</label>
         <input  :type="type" 
                 :placeholder="placeholder" 

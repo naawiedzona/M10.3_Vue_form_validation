@@ -3,18 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-.form-control {
+.form-controls {
     margin-bottom: 10px;
     padding-bottom: 15px;
     position: relative;
     opacity: 0.7;
 }
-.form-control label {
-    display: inline-block;
+.form-controls label {
     margin-bottom: 5px;
     font-size: 20px;
 }
-.form-control input {
+.form-controls input {
     border: 1px solid #f0f0f0;
     border-radius: 4px;
     display: block;
@@ -27,5 +26,5 @@
 .errorMessage{
     color: red;
     font-size: 12px;
-    padding: -30px;
+    padding-top: -30px;
 }
